@@ -2,14 +2,22 @@ import React from 'react';
 
 import { postArticle } from '../js/requests'
 
-const EntryInput = ({ setRecommendations }) => {
+const EntryInput = ({ setRecommendations, setLoading }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const userEntry = document.getElementById("user-entry").value
+        // clear any previously rendered recommendations
+        setRecommendations(null)
 
-        postArticle(userEntry, setRecommendations)
+        const userEntry = document.getElementById("user-entry")
+        
+        postArticle(userEntry.value, setRecommendations, setLoading)
+        
+        // Clear the form data 
+        userEntry.value = ""
+
+        setLoading(true)
     }
 
     return(

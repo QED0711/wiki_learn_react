@@ -1,6 +1,6 @@
 import $ from "jquery"
 
-const postArticle = (text, setRecommendations) => {
+const postArticle = (text, setRecommendations, setLoading) => {
 
     const settings = {
         "async": true,
@@ -18,6 +18,7 @@ const postArticle = (text, setRecommendations) => {
 
     $.ajax(settings).done(response => {
         console.log(response)
+        setLoading(false)
         setRecommendations(response)
     })
 }
