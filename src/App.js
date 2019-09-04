@@ -15,21 +15,6 @@ function App() {
   return (
     <div className="App">
       <EntryInput setRecommendations={setRecommendations} setLoading={setLoading} />
-      {decisionThreshold}
-      <br/>
-      {Math.round(numRecommendations, 0)}
-      <SliderGroup
-        domain={[0, 1]}
-        values={[0.5]}
-        step={0.01}
-        stateConnection={setDecisionThreshold}
-      />
-      <SliderGroup
-        domain={[1, 100]}
-        values={[20]}
-        step={1}
-        stateConnection={setNumRecommendations}
-      />
 
       {
         loading
@@ -40,6 +25,7 @@ function App() {
         recommendations
         &&
         <div>
+          <SliderGroup setDecisionThreshold={setDecisionThreshold} setNumRecommendations={setNumRecommendations} />
           <RecommendationsDisplay recommendations={recommendations} />
         </div>
       }
