@@ -1,8 +1,7 @@
 import React from 'react';
 import SliderBox from './SliderBox';
 
-const SliderGroup = ({ setDecisionThreshold, setNumRecommendations }) => {
-
+const SliderGroup = ({ setDecisionThreshold, setNumRecommendations, decisionThreshold }) => {
     return (
         <div className="slider-group">
             <SliderBox
@@ -15,7 +14,7 @@ const SliderGroup = ({ setDecisionThreshold, setNumRecommendations }) => {
             <SliderBox
                 sliderTitle={"Decision Threshold"}
                 domain={[0, 1]}
-                values={[0.5]}
+                values={[parseFloat(decisionThreshold).toFixed(2)]}
                 step={0.01}
                 setConnectedState={setDecisionThreshold}
             />

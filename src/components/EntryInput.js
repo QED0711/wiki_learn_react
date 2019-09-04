@@ -2,7 +2,7 @@ import React from 'react';
 
 import { postArticle } from '../js/requests'
 
-const EntryInput = ({ setRecommendations, setLoading }) => {
+const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -12,7 +12,7 @@ const EntryInput = ({ setRecommendations, setLoading }) => {
 
         const userEntry = document.getElementById("user-entry")
         
-        postArticle(userEntry.value, setRecommendations, setLoading)
+        postArticle(userEntry.value, setRecommendations, setLoading, setDecisionThreshold)
         
         // Clear the form data 
         userEntry.value = ""
@@ -24,7 +24,7 @@ const EntryInput = ({ setRecommendations, setLoading }) => {
         <form id="entry-input" onSubmit={handleSubmit}>
             <label for="user-entry">Wikipedia URL</label>
             <br/>
-            <input type="text" id="user-entry" />
+            <input type="text" id="user-entry" defaultValue="Function (music)"/>
             <br/>
             <input type="submit" value="Submit"/>
         </form>

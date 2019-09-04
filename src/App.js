@@ -5,6 +5,24 @@ import RecommendationsDisplay from './components/RecommendationsDisplay';
 import Loading from './components/Loading';
 import SliderGroup from './components/SliderGroup';
 
+
+// let testRecommendations = {
+//   classes: ["before", "after"],
+//   decision_threshold: 0.47,
+//   predictions: [
+//     {node: "55 after", label_proba: [0.45, 0.55], position: "after"},
+//     {node: "58 before", label_proba: [0.58, 0.42], position: "before"},
+//     {node: "60 after", label_proba: [0.40, 0.60], position: "after"},
+//     {node: "72 before", label_proba: [0.72, 0.38], position: "before"},
+//   ]
+// }
+
+// for(let rec of testRecommendations.predictions){
+//   rec[testRecommendations.classes[0]] = rec.label_proba[0]
+//   rec[testRecommendations.classes[1]] = rec.label_proba[1]
+// }
+// console.log(testRecommendations.predictions)
+
 function App() {
 
   const [recommendations, setRecommendations] = useState(null)
@@ -14,7 +32,11 @@ function App() {
 
   return (
     <div className="App">
-      <EntryInput setRecommendations={setRecommendations} setLoading={setLoading} />
+      <EntryInput
+        setRecommendations={setRecommendations}
+        setLoading={setLoading}
+        setDecisionThreshold={setDecisionThreshold}
+      />
 
       {
         loading
@@ -25,8 +47,16 @@ function App() {
         recommendations
         &&
         <div>
-          <SliderGroup setDecisionThreshold={setDecisionThreshold} setNumRecommendations={setNumRecommendations} />
-          <RecommendationsDisplay recommendations={recommendations} />
+          <SliderGroup
+            setDecisionThreshold={setDecisionThreshold}
+            decisionThreshold={decisionThreshold}
+            setNumRecommendations={setNumRecommendations}
+          />
+          <RecommendationsDisplay
+            recommendations={recommendations}
+            decisionThreshold={decisionThreshold}
+            numRecommendations={numRecommendations}
+          />
         </div>
       }
     </div>
