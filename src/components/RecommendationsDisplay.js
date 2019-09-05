@@ -1,6 +1,15 @@
 import React from 'react';
+import { fetchArticleExtract } from '../js/requests';
 
-const RecommendationsDisplay = ({ recommendations, currentRec, setCurrentRec, decisionThreshold, numRecommendations }) => {
+const RecommendationsDisplay = ({ 
+    recommendations, 
+    currentRec, 
+    setCurrentRec, 
+    currentExtract, 
+    setCurrentExtract,
+    decisionThreshold, 
+    numRecommendations 
+}) => {
 
     const reassignClasses = (recs) => {
         // Make a copy of the predictions array
@@ -31,13 +40,19 @@ const RecommendationsDisplay = ({ recommendations, currentRec, setCurrentRec, de
         let predictions = recs.predictions.slice(0, numRecommendations + 1)
         predictions.forEach((rec, i) => {
             if (rec.position === "before") {
-                beforeRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => { setCurrentRec(rec.node) }}>
+                beforeRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => { 
+                    setCurrentRec(rec.node)
+                    fetchArticleExtract(rec.node, setCurrentExtract)
+                }}>
                     <p>
                         {rec.node}
                     </p>
                 </div>)
             } else {
-                afterRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => { setCurrentRec(rec.node) }}>
+                afterRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => { 
+                    setCurrentRec(rec.node) 
+                    fetchArticleExtract(rec.node, setCurrentExtract)
+                }}>
                     <p>
                         {rec.node}
                     </p>
@@ -49,9 +64,16 @@ const RecommendationsDisplay = ({ recommendations, currentRec, setCurrentRec, de
     parseRecommendations(recs)
 
 
+    if(currentRec === recs.entry){
+        fetchArticleExtract(recs.entry, setCurrentExtract)                
+    }
+    
     return (
         <div>
-            <div className="results-title"  onClick={(e) => {setCurrentRec(recs.entry)}}>
+            <div className="results-title"  onClick={(e) => {
+                setCurrentRec(recs.entry)
+                fetchArticleExtract(recs.entry, setCurrentExtract)                
+            }}>
                 <h1>{recs.entry}</h1>
             </div>
             <div className="recommendation-display">
@@ -59,9 +81,12 @@ const RecommendationsDisplay = ({ recommendations, currentRec, setCurrentRec, de
                 <div className="before-recs">
                     {beforeRecs}
                 </div>
+
                 <div className="current-content">
                     <h2>{currentRec}</h2>
+                    <p className="extract">{currentExtract}</p>
                 </div>
+
                 <div className="after-recs">
                     {afterRecs}
                 </div>

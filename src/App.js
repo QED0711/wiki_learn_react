@@ -4,10 +4,11 @@ import EntryInput from './components/EntryInput';
 import RecommendationsDisplay from './components/RecommendationsDisplay';
 import Loading from './components/Loading';
 import SliderGroup from './components/SliderGroup';
+import { fetchArticleExtract } from './js/requests';
 
 
 let testRecommendations = {
-  entry: "Something That Was Searched",
+  entry: "Decision tree",
   classes: ["before", "after"],
   decision_threshold: 0.47,
   predictions: [
@@ -24,13 +25,15 @@ for(let rec of testRecommendations.predictions){
 }
 // console.log(testRecommendations.predictions)
 
-function App() {
+const App = () => {
 
   const [recommendations, setRecommendations] = useState(testRecommendations)
   const [currentRec, setCurrentRec] = useState(testRecommendations.entry)
+  const [currentExtract, setCurrentExtract] = useState("")
   const [loading, setLoading] = useState(false)
   const [decisionThreshold, setDecisionThreshold] = useState(0.5)
   const [numRecommendations, setNumRecommendations] = useState(20)
+
 
   return (
     <div className="App">
@@ -59,6 +62,8 @@ function App() {
             recommendations={recommendations}
             currentRec={currentRec}
             setCurrentRec={setCurrentRec}
+            currentExtract={currentExtract}
+            setCurrentExtract={setCurrentExtract}
             decisionThreshold={decisionThreshold}
             numRecommendations={numRecommendations}
           />

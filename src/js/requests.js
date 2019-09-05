@@ -28,6 +28,7 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
 
     $.ajax(settings).done(response => {
         console.log(response)
+        // debugger
         response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"').replace(/\w\"\w/g, "'"))
         
         let [before, after] = [0, 0]
@@ -51,6 +52,36 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
     })
 }
 
+// ====================================================
+
+const fetchArticleExtract = (title, setCurrentExtract) => {
+
+    let url = "https://en.wikipedia.org/w/api.php"; 
+    url = url + "?origin=*";
+
+
+    const params = {
+        action: "query",
+        format: "json",
+        titles: title,
+        prop: "extracts",
+        exintro: true,
+        explaintext: true,
+        exsectionformat: 'plain',
+    };
+
+
+    Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            const pageID = Object.keys(json.query.pages)[0]
+            setCurrentExtract(json.query.pages[pageID].extract)
+    }) 
+}
+
 export {
     postArticle,
+    fetchArticleExtract
 }
