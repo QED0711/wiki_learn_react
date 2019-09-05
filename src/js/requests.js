@@ -5,8 +5,8 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold)
     const settings = {
         "async": true,
         "crossDomain": true,
-        // "url": "http://127.0.0.1:5000",
-        "url": "https://glacial-scrubland-06464.herokuapp.com/",
+        "url": "http://127.0.0.1:5000",
+        // "url": "https://wiki-learn-252012.appspot.com/",
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
@@ -20,27 +20,17 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold)
         "xhr": (e) => {
             const xhr = $.ajaxSettings.xhr();
             xhr.onprogress = e => {
-                // For downloads
                 console.log("progress")
-                // $.ajax({
-                //     "async": true,
-                //     "crossDomain": true,
-                //     "url": "https://glacial-scrubland-06464.herokuapp.com/",
-                //     "method": "GET"
-                // }).done( response => {
-                //     console.log(response)
-                // })
-
             };
             return xhr;
         }
     }
 
     $.ajax(settings).done(response => {
-        console.log(response)
         response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"'))
 
-        debugger
+        console.log(response)
+        
         let [before, after] = [0, 0]
         // breakout the 'before' and 'after' prediction probbilities before setting in state
         for (let pred of response.predictions) {
