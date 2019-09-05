@@ -23,18 +23,43 @@ const RecommendationsDisplay = ({ recommendations, decisionThreshold, numRecomme
     }
 
     let recs = reassignClasses(recommendations)
+    
+    const beforeRecs = []
+    const afterRecs = []
 
     const parseRecommendations = (recs) => {
         let predictions = recs.predictions.slice(0, numRecommendations + 1)
-        return predictions.map((rec, i) => {
-            return <li key={i} className={`position-${rec.position}`}>{rec.node} - {rec.position.toUpperCase()}</li>
+        predictions.forEach((rec, i) => {
+            if (rec.position === "before"){
+                beforeRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => {console.log(rec.node)}}>
+                                    <p>
+                                        {rec.node}
+                                    </p>
+                                </div>)
+            } else {
+                afterRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => {console.log(rec.node)}}>
+                                    <p>
+                                        {rec.node}
+                                    </p>
+                                </div>)
+            }
         })
     }
 
+    parseRecommendations(recs)
+
+
     return (
         <div className="recommendation-display">
-            <ul>
-                {parseRecommendations(recs)}
+            
+            <ul className="before-recs">
+                {beforeRecs}
+            </ul>
+            <div className="current-content">
+                {recs.entry}
+            </div>
+            <ul className="after-recs">
+                {afterRecs}
             </ul>
         </div>
     )
