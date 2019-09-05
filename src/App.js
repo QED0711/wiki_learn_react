@@ -27,6 +27,7 @@ for(let rec of testRecommendations.predictions){
 function App() {
 
   const [recommendations, setRecommendations] = useState(testRecommendations)
+  const [currentRec, setCurrentRec] = useState(testRecommendations.entry)
   const [loading, setLoading] = useState(false)
   const [decisionThreshold, setDecisionThreshold] = useState(0.5)
   const [numRecommendations, setNumRecommendations] = useState(20)
@@ -37,6 +38,7 @@ function App() {
         setRecommendations={setRecommendations}
         setLoading={setLoading}
         setDecisionThreshold={setDecisionThreshold}
+        setCurrentRec={setCurrentRec}
       />
 
       {
@@ -55,6 +57,8 @@ function App() {
           />
           <RecommendationsDisplay
             recommendations={recommendations}
+            currentRec={currentRec}
+            setCurrentRec={setCurrentRec}
             decisionThreshold={decisionThreshold}
             numRecommendations={numRecommendations}
           />

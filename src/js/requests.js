@@ -1,6 +1,6 @@
 import $ from "jquery"
 
-const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold) => {
+const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold, setCurrentRec) => {
 
     const settings = {
         "async": true,
@@ -27,9 +27,8 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold)
     }
 
     $.ajax(settings).done(response => {
-        response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"'))
-
         console.log(response)
+        response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"').replace(/\w\"\w/g, "'"))
         
         let [before, after] = [0, 0]
         // breakout the 'before' and 'after' prediction probbilities before setting in state
@@ -46,6 +45,7 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold)
         console.log({ before, after })
 
         setLoading(false)
+        setCurrentRec(response.entry)
         setRecommendations(response)
         setDecisionThreshold(response.decision_threshold)
     })
