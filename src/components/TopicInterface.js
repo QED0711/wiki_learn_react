@@ -26,7 +26,7 @@ const TopicInterface = ({currentRec,
             {
                 showRequestButton
                 &&
-                <button onClick={handleRequestClick}>Get recommendations from this topic</button>
+                <button onClick={handleRequestClick}>Recommendations from here</button>
             }
             <button onClick={handleRedirectClick}>Read Full Article</button>
         </div>

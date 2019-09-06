@@ -85,7 +85,7 @@ const RecommendationsDisplay = ({
                 </div>
 
                 <div className="current-content">
-                    <h2>{currentRec}</h2>
+                    <h2 className="current-topic-title">{currentRec}</h2>
                     <TopicInterface
                         currentRec={currentRec}
                         setRecommendations={setRecommendations}
