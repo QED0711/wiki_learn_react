@@ -95,7 +95,9 @@ const RecommendationsDisplay = ({
                         setRequestError={setRequestError}
                         showRequestButton={currentRec !== recs.entry}
                     />
-                    <p className="extract">{currentExtract}</p>
+                    <div className="extract">
+                        <p>{currentExtract}</p>
+                    </div>
                 </div>
 
                 <div className="after-recs">
