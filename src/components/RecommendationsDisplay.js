@@ -1,16 +1,20 @@
 import React from 'react';
 import { fetchArticleExtract } from '../js/requests';
 import RecommendationCard from './RecommendationCard'
+import TopicInterface from './TopicInterface';
 
-const RecommendationsDisplay = ({ 
-    recommendations, 
-    currentRec, 
-    setCurrentRec, 
-    currentExtract, 
+const RecommendationsDisplay = ({
+    recommendations,
+    setRecommendations,
+    currentRec,
+    setCurrentRec,
+    currentExtract,
     setCurrentExtract,
-    decisionThreshold, 
+    setDecisionThreshold,
+    decisionThreshold,
+    setLoading,
     numRecommendations,
-    setRequestError 
+    setRequestError
 }) => {
 
     const reassignClasses = (recs) => {
@@ -42,11 +46,11 @@ const RecommendationsDisplay = ({
         let predictions = recs.predictions.slice(0, numRecommendations + 1)
         let card;
         predictions.forEach((rec, i) => {
-            
-            card = <RecommendationCard 
-                key={i} 
-                rec={rec} 
-                setCurrentExtract={setCurrentExtract} 
+
+            card = <RecommendationCard
+                key={i}
+                rec={rec}
+                setCurrentExtract={setCurrentExtract}
                 setCurrentRec={setCurrentRec}
                 fetchArticleExtract={fetchArticleExtract}
             />
@@ -62,15 +66,15 @@ const RecommendationsDisplay = ({
     parseRecommendations(recs)
 
 
-    if(currentRec === recs.entry){
-        fetchArticleExtract(recs.entry, setCurrentExtract)                
+    if (currentRec === recs.entry) {
+        fetchArticleExtract(recs.entry, setCurrentExtract)
     }
-    
+
     return (
         <div>
-            <div className="results-title"  onClick={(e) => {
+            <div className="results-title" onClick={(e) => {
                 setCurrentRec(recs.entry)
-                fetchArticleExtract(recs.entry, setCurrentExtract)                
+                fetchArticleExtract(recs.entry, setCurrentExtract)
             }}>
                 <h1>{recs.entry}</h1>
             </div>
@@ -82,6 +86,15 @@ const RecommendationsDisplay = ({
 
                 <div className="current-content">
                     <h2>{currentRec}</h2>
+                    <TopicInterface
+                        currentRec={currentRec}
+                        setRecommendations={setRecommendations}
+                        setLoading={setLoading}
+                        setDecisionThreshold={setDecisionThreshold}
+                        setCurrentRec={setCurrentRec}
+                        setRequestError={setRequestError}
+                        showRequestButton={currentRec !== recs.entry}
+                    />
                     <p className="extract">{currentExtract}</p>
                 </div>
 
