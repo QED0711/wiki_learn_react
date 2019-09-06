@@ -2,7 +2,7 @@ import React from 'react';
 
 import { postArticle } from '../js/requests'
 
-const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setCurrentRec }) => {
+const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setCurrentRec, setRequestError }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -12,11 +12,12 @@ const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setC
 
         const userEntry = document.getElementById("user-entry")
         
-        postArticle(userEntry.value, setRecommendations, setLoading, setDecisionThreshold, setCurrentRec)
+        postArticle(userEntry.value, setRecommendations, setLoading, setDecisionThreshold, setCurrentRec, setRequestError)
         
         // Clear the form data 
         userEntry.value = ""
-
+        
+        setRequestError("")
         setLoading(true)
     }
 

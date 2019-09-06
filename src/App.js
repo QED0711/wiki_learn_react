@@ -4,7 +4,6 @@ import EntryInput from './components/EntryInput';
 import RecommendationsDisplay from './components/RecommendationsDisplay';
 import Loading from './components/Loading';
 import SliderGroup from './components/SliderGroup';
-import { fetchArticleExtract } from './js/requests';
 
 
 let testRecommendations = {
@@ -33,6 +32,7 @@ const App = () => {
   const [loading, setLoading] = useState(false)
   const [decisionThreshold, setDecisionThreshold] = useState(0.5)
   const [numRecommendations, setNumRecommendations] = useState(20)
+  const [requestError, setRequestError] = useState("")
 
 
   return (
@@ -42,12 +42,18 @@ const App = () => {
         setLoading={setLoading}
         setDecisionThreshold={setDecisionThreshold}
         setCurrentRec={setCurrentRec}
+        setRequestError={setRequestError}
       />
 
       {
         loading
         &&
         <Loading />
+      }
+      {
+        requestError.length > 0
+        &&
+        <h3>{requestError}</h3>
       }
       {
         recommendations

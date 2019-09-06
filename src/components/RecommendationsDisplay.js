@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchArticleExtract } from '../js/requests';
+import RecommendationCard from './RecommendationCard'
 
 const RecommendationsDisplay = ({ 
     recommendations, 
@@ -8,7 +9,8 @@ const RecommendationsDisplay = ({
     currentExtract, 
     setCurrentExtract,
     decisionThreshold, 
-    numRecommendations 
+    numRecommendations,
+    setRequestError 
 }) => {
 
     const reassignClasses = (recs) => {
@@ -38,25 +40,21 @@ const RecommendationsDisplay = ({
 
     const parseRecommendations = (recs) => {
         let predictions = recs.predictions.slice(0, numRecommendations + 1)
+        let card;
         predictions.forEach((rec, i) => {
+            
+            card = <RecommendationCard 
+                key={i} 
+                rec={rec} 
+                setCurrentExtract={setCurrentExtract} 
+                setCurrentRec={setCurrentRec}
+                fetchArticleExtract={fetchArticleExtract}
+            />
+
             if (rec.position === "before") {
-                beforeRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => { 
-                    setCurrentRec(rec.node)
-                    fetchArticleExtract(rec.node, setCurrentExtract)
-                }}>
-                    <p>
-                        {rec.node}
-                    </p>
-                </div>)
+                beforeRecs.push(card)
             } else {
-                afterRecs.push(<div key={i} className={`recommendation position-${rec.position}`} onClick={() => { 
-                    setCurrentRec(rec.node) 
-                    fetchArticleExtract(rec.node, setCurrentExtract)
-                }}>
-                    <p>
-                        {rec.node}
-                    </p>
-                </div>)
+                afterRecs.push(card)
             }
         })
     }

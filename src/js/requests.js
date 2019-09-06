@@ -1,6 +1,6 @@
 import $ from "jquery"
 
-const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold, setCurrentRec) => {
+const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold, setCurrentRec, setRequestError) => {
 
     const settings = {
         "async": true,
@@ -29,8 +29,16 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
     $.ajax(settings).done(response => {
         console.log(response)
         // debugger
-        response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"').replace(/\w\"\w/g, "'"))
-        
+        try {
+            response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"').replace(/\w\"\w/g, "'"))
+        } catch (err) {
+            if (err.name === "TypeError") {
+                setLoading(false)
+                setRequestError("There was a problem retrieving the data you specified. It may be that the article was too large. Try choosing a smaller, more specific topic.")
+                return
+            }
+        }
+
         let [before, after] = [0, 0]
         // breakout the 'before' and 'after' prediction probbilities before setting in state
         for (let pred of response.predictions) {
@@ -56,7 +64,7 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
 
 const fetchArticleExtract = (title, setCurrentExtract) => {
 
-    let url = "https://en.wikipedia.org/w/api.php"; 
+    let url = "https://en.wikipedia.org/w/api.php";
     url = url + "?origin=*";
 
 
@@ -71,14 +79,14 @@ const fetchArticleExtract = (title, setCurrentExtract) => {
     };
 
 
-    Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+    Object.keys(params).forEach(function (key) { url += "&" + key + "=" + params[key]; });
 
     fetch(url)
         .then(response => response.json())
         .then(json => {
             const pageID = Object.keys(json.query.pages)[0]
             setCurrentExtract(json.query.pages[pageID].extract)
-    }) 
+        })
 }
 
 export {
