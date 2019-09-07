@@ -25,7 +25,7 @@ const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setC
         <form id="entry-input" onSubmit={handleSubmit}>
             <label for="user-entry">Wikipedia URL</label>
             <br/>
-            <input type="text" id="user-entry" defaultValue="Function (music)"/>
+            <input type="text" id="user-entry" placeholder="paste Wikipedia article link here"/>
             <br/>
             <input type="submit" value="Submit"/>
         </form>

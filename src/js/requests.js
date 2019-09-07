@@ -1,4 +1,5 @@
 import $ from "jquery"
+import classProbaLabeler from "./classProbaLabeler";
 
 const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold, setCurrentRec, setRequestError) => {
 
@@ -27,10 +28,9 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
     }
 
     $.ajax(settings).done(response => {
-        console.log(response)
         // debugger
         try {
-            response = JSON.parse(response.split("formatted\n")[1].replace(/\'/g, '"').replace(/\w\"\w/g, "'"))
+            response = JSON.parse(response.split("formatted\n")[1])
         } catch (err) {
             if (err.name === "TypeError") {
                 setLoading(false)
@@ -38,20 +38,9 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
                 return
             }
         }
-
-        let [before, after] = [0, 0]
-        // breakout the 'before' and 'after' prediction probbilities before setting in state
-        for (let pred of response.predictions) {
-            if (pred.position === 'before') {
-                before += 1
-            } else {
-                after += 1
-            }
-            pred[response.classes[0]] = pred.label_proba[0]
-            pred[response.classes[1]] = pred.label_proba[1]
-        }
-
-        console.log({ before, after })
+        console.log(JSON.stringify(response))
+        let [before, after] = classProbaLabeler(response)
+        console.log({before, after})
 
         setLoading(false)
         setCurrentRec(response.entry)

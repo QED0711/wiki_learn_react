@@ -21,6 +21,10 @@ const TopicInterface = ({currentRec,
         window.open("https://en.wikipedia.org/wiki/" + currentRec)
     }
 
+    const handleGoogleSearchClick = (e) => {
+        window.open("https://www.google.com/search?q=" + currentRec.replace(/\s/g, "+"))
+    }
+
     return(
         <div className="topic-interface">
             {
@@ -29,6 +33,7 @@ const TopicInterface = ({currentRec,
                 <button onClick={handleRequestClick}>Recommendations from here</button>
             }
             <button onClick={handleRedirectClick}>Read Full Article</button>
+            <button onClick={handleGoogleSearchClick}>Search on Google</button>
         </div>
     )
 }

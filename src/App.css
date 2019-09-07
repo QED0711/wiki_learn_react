@@ -103,7 +103,7 @@
 .before-recs, .after-recs{
   box-shadow: 1px 1px 4px var(--shadow-dark) inset;
   padding: 1em;
-  margin: 0 0 5em;
+  margin: 0 0 1em;
   height: 600px;
 
   overflow: auto;
@@ -193,4 +193,43 @@
   to{
     box-shadow: 2px 2px 10px var(--shadow-dark);
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pre-calculated-rec{
+  display: inline-block;
+  margin: 0 0.5em;
+
+  background-color: var(--light-blue);
+  padding: 0.25em 0.5em;
+
+  border-radius: 8px;
+
+  box-shadow: 2px 2px 5px var(--shadow-dark);
+
+  color: var(--shadow-light);
+
+  cursor: pointer;
+}
+
+.pre-calculated-rec:hover{
+  animation-name: rec-emphasis;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
 }

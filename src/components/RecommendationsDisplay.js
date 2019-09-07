@@ -20,7 +20,6 @@ const RecommendationsDisplay = ({
     const reassignClasses = (recs) => {
         // Make a copy of the predictions array
         let predictions = recs.predictions.map(x => { return { ...x } })
-
         // loop through predictions array and swap if a current prediction does not match threshold
         predictions.forEach(pred => {
             if (decisionThreshold >= 0.5) {
@@ -38,7 +37,7 @@ const RecommendationsDisplay = ({
     }
 
     let recs = reassignClasses(recommendations)
-
+    
     const beforeRecs = []
     const afterRecs = []
 
