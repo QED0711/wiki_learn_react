@@ -27,6 +27,10 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
         }
     }
 
+    if(process.env.NODE_ENV == 'production'){
+        settings.url = "https://wiki-learn-252012.appspot.com/"
+    }
+
     $.ajax(settings).done(response => {
         // debugger
         try {

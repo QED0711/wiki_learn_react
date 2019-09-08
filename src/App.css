@@ -154,6 +154,7 @@
   overflow: auto;
 
   background-color: #789782;
+  background-repeat: no-repeat;
   color: white;
   font-family: 'Comic Sans MS' sans-serif;
   line-height: 1.15em;

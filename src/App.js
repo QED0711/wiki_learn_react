@@ -6,6 +6,7 @@ import Loading from './components/Loading';
 import SliderGroup from './components/SliderGroup';
 import PreCalculatedInterface from './components/PreCalculatedInterface';
 
+console.log(process.env)
 
 let testRecommendations = {
   entry: "Decision tree",
