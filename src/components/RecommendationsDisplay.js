@@ -22,6 +22,16 @@ const RecommendationsDisplay = ({
         let predictions = recs.predictions.map(x => { return { ...x } })
         // loop through predictions array and swap if a current prediction does not match threshold
         predictions.forEach(pred => {
+
+            if(pred.static){
+                if(pred.static === 'before'){
+                    pred.position = "before"; 
+                } else {
+                    pred.position = "after";
+                }
+                return // do not proceed to next steps
+            }
+
             if (decisionThreshold >= 0.5) {
                 if (pred.before < decisionThreshold && pred.position === 'before') {
                     pred.position = 'after'
@@ -69,6 +79,8 @@ const RecommendationsDisplay = ({
         fetchArticleExtract(recs.entry, setCurrentExtract)
     }
 
+    
+
     return (
         <div>
             <div className="results-title" onClick={(e) => {
@@ -87,6 +99,7 @@ const RecommendationsDisplay = ({
                     <h2 className="current-topic-title">{currentRec}</h2>
                     <TopicInterface
                         currentRec={currentRec}
+                        recommendations={recommendations}
                         setRecommendations={setRecommendations}
                         setLoading={setLoading}
                         setDecisionThreshold={setDecisionThreshold}

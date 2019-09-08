@@ -36,7 +36,6 @@ const App = () => {
   const [numRecommendations, setNumRecommendations] = useState(20)
   const [requestError, setRequestError] = useState("")
 
-
   return (
     <div className="App">
       <EntryInput
