@@ -92,21 +92,21 @@ const RecommendationsDisplay = ({
 
     return (
         <div className="recommendation-container">
-            <div className="results-title" onClick={(e) => {
+            <div className="section-heading" onClick={(e) => {
                 setCurrentRec(recs.entry)
                 fetchArticleExtract(recs.entry, setCurrentExtract)
             }}>
                 <h1>{recs.entry}</h1>
             </div>
             <div className="recommendation-display">
-                <div className="position-container">
+                <div className="position-container before-container">
                     <h3>Learn Before</h3>
                     <div className="before-recs">
                         {beforeRecs}
                     </div>
                 </div>
 
-                <div className="current-content">
+                <div className="current-content extract-container">
                     <h2 className="current-topic-title">{currentRec}</h2>
                     <TopicInterface
                         currentRec={currentRec}
@@ -122,7 +122,7 @@ const RecommendationsDisplay = ({
                         <p>{currentExtract}</p>
                     </div>
                 </div>
-                <div className="position-container">
+                <div className="position-container after-container">
                     <h3>Learn After</h3>
                     <div className="after-recs">
                         {afterRecs}
