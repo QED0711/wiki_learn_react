@@ -42,7 +42,7 @@ const PreCalculatedInterface = ({ setRecommendations, setCurrentRec, setRevision
 
     return (
         <div className="pre-calculated-container">
-            <h3>Quick Start</h3>
+            <h3 className="section-heading">Quick Start</h3>
             <p>Want a fast and easy way to get started with Wiki Learn? Try one of the pre-calculated topics below.</p>
             <p>No waiting. Just learning.</p>
             {recommendationDivs(data)}

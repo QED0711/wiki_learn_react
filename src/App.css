@@ -255,6 +255,17 @@
 
 
 
+
+
+.section-heading{
+  margin-top: 0;
+  background-color: var(--dark-blue);
+  color: var(--shadow-light);
+
+  padding: 1em 0;
+}
+
+
 .pre-calculated-container{
   width: 90%;
   max-width: 1300px;
@@ -270,7 +281,7 @@
 
   background-color: var(--light-blue);
   padding: 0.25em 0.5em;
-  margin: 0 0.5em;
+  margin: 0.5em 0.5em;
   border-radius: 8px;
 
   box-shadow: 2px 2px 5px var(--shadow-dark);
