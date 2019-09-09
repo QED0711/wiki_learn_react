@@ -5,6 +5,7 @@ import RecommendationsDisplay from './components/RecommendationsDisplay';
 import Loading from './components/Loading';
 import SliderGroup from './components/SliderGroup';
 import PreCalculatedInterface from './components/PreCalculatedInterface';
+import Header from './components/Header';
 
 console.log(process.env)
 
@@ -39,6 +40,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
+
       <EntryInput
         setRecommendations={setRecommendations}
         setLoading={setLoading}
