@@ -10,7 +10,23 @@
 }
 
 
+@media only screen and (max-width: 750px){
+  .App{
+    font-size: 0.9em;
+  }
+}
 
+@media only screen and (max-width: 600px){
+  .App{
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .App{
+    font-size: 0.7em;
+  }
+}
 
 
 
@@ -94,6 +110,16 @@
     "extract extract"
     "before after";
   }
+
+  .extract{
+    height: auto;
+    max-height: 250px;
+  }
+
+  .before-recs, .after-recs{
+    height: auto;
+    max-height: 250px;
+  }
 }
 
 
@@ -102,6 +128,15 @@
 
 }
 
+
+.before-recs, .after-recs{
+  box-shadow: 1px 1px 4px var(--shadow-dark) inset;
+  padding: 1em;
+  margin: 0 1em 1em;
+  height: 600px;
+
+  overflow: auto;
+}
 
 .position-before{
   color: blue;
@@ -186,14 +221,7 @@
   text-align: center;
 }
 
-.before-recs, .after-recs{
-  box-shadow: 1px 1px 4px var(--shadow-dark) inset;
-  padding: 1em;
-  margin: 0 1em 1em;
-  height: 600px;
 
-  overflow: auto;
-}
 
 
 .current-content{
