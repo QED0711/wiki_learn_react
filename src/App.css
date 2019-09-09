@@ -10,6 +10,40 @@
 }
 
 
+
+
+
+
+
+#entry-input{
+  width: 90%;
+  max-width: 1300px;
+  margin: 1em auto;
+  padding: 1em 0;
+
+  box-shadow: 2px 2px 10px var(--shadow-dark);
+}
+
+#entry-input input[type="text"]{
+  margin: 1em 0;
+  width: 90%;
+  padding: 0.25em;
+  text-align: center;
+  font-size: 1.2em;
+
+  border: 2px solid var(--dark-blue);
+  border-radius: 8px;
+
+}
+
+
+
+
+
+
+
+
+
 .position-before{
   color: blue;
 }
