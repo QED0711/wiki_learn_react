@@ -46,7 +46,7 @@
 .recommendation-container{
   width: 90%;
   max-width: 1300px;
-  margin: 1em auto 2em;
+  margin: 1em auto 0;
   padding: 1em 0;
   box-shadow: 2px 2px 10px var(--shadow-dark);
 }
@@ -204,6 +204,12 @@
 
 
 
+.submit-revisions{
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+  font-style: italic;
+}
 
 
 
@@ -213,16 +219,22 @@
 
 
 
-
+.pre-calculated-container{
+  width: 90%;
+  max-width: 1300px;
+  margin: 1em auto;
+  padding: 0.5em 0 3em;
+  box-shadow: 2px 2px 10px var(--shadow-dark);
+}
 
 
 .pre-calculated-rec{
   display: inline-block;
-  margin: 0 0.5em 5em;
+  
 
   background-color: var(--light-blue);
   padding: 0.25em 0.5em;
-
+  margin: 0 0.5em;
   border-radius: 8px;
 
   box-shadow: 2px 2px 5px var(--shadow-dark);
@@ -230,6 +242,7 @@
   color: var(--shadow-light);
 
   cursor: pointer;
+
 }
 
 .pre-calculated-rec:hover{

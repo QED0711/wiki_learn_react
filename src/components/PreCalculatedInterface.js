@@ -22,7 +22,7 @@ const PreCalculatedInterface = ({ setRecommendations, setCurrentRec }) => {
     const handleClick = (recs) => {
         const setAsRec = (e) => {
             let [before, after] = classProbaLabeler(recs)
-            console.log({before, after, article: recs.entry})
+            console.log({ before, after, article: recs.entry })
             setRecommendations(recs)
             setCurrentRec(recs.entry)
         }
@@ -31,7 +31,7 @@ const PreCalculatedInterface = ({ setRecommendations, setCurrentRec }) => {
 
     const recommendationDivs = (data) => {
         return data.map((rec, i) => {
-            return(
+            return (
                 <div key={i} className="pre-calculated-rec" onClick={handleClick(rec)}>
                     {rec.entry}
                 </div>
@@ -39,8 +39,11 @@ const PreCalculatedInterface = ({ setRecommendations, setCurrentRec }) => {
         })
     }
 
-    return(
-        <div className="pre-calculated">
+    return (
+        <div className="pre-calculated-container">
+            <h3>Quick Start</h3>
+            <p>Want a fast and easy way to get started with Wiki Learn? Try one of the pre-calculated topics below.</p>
+            <p>No waiting. Just learning.</p>
             {recommendationDivs(data)}
         </div>
     )
