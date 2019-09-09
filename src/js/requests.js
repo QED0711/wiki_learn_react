@@ -106,7 +106,7 @@ const submitLabeledData = (submission) => {
     }
 
     $.ajax(settings).done(response => {
-        console.log(response)
+        return response
     })
 }
 

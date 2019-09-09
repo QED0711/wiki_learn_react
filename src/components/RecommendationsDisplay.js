@@ -13,10 +13,14 @@ const RecommendationsDisplay = ({
     setCurrentExtract,
     setDecisionThreshold,
     decisionThreshold,
+    loading,
     setLoading,
     numRecommendations,
-    setRequestError
+    setRequestError,
+    revisionsSubmitted,
+    setRevisionsSubmitted
 }) => {
+    console.log("loading")
 
     const reassignClasses = (recs) => {
         // Make a copy of the predictions array
@@ -95,9 +99,11 @@ const RecommendationsDisplay = ({
                 <h1>{recs.entry}</h1>
             </div>
             <div className="recommendation-display">
-
-                <div className="before-recs">
-                    {beforeRecs}
+                <div className="position-container">
+                    <h3>Learn Before</h3>
+                    <div className="before-recs">
+                        {beforeRecs}
+                    </div>
                 </div>
 
                 <div className="current-content">
@@ -116,12 +122,20 @@ const RecommendationsDisplay = ({
                         <p>{currentExtract}</p>
                     </div>
                 </div>
-
-                <div className="after-recs">
-                    {afterRecs}
+                <div className="position-container">
+                    <h3>Learn After</h3>
+                    <div className="after-recs">
+                        {afterRecs}
+                    </div>
                 </div>
             </div>
-            <SubmitRevisions entry={recs.entry} displayedRecs={displayedRecs} />
+            {
+                !revisionsSubmitted
+                ?
+                <SubmitRevisions entry={recs.entry} displayedRecs={displayedRecs} setRevisionsSubmitted={setRevisionsSubmitted} />
+                :
+                <h4><em>Thank you for your contributions to the Wiki Learn project!</em></h4>
+            }
         </div>
     )
 

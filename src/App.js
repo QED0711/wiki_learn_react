@@ -35,6 +35,7 @@ const App = () => {
   const [decisionThreshold, setDecisionThreshold] = useState(0.5)
   const [numRecommendations, setNumRecommendations] = useState(20)
   const [requestError, setRequestError] = useState("")
+  const [revisionsSubmitted, setRevisionsSubmitted] = useState(false)
 
   return (
     <div className="App">
@@ -44,6 +45,7 @@ const App = () => {
         setDecisionThreshold={setDecisionThreshold}
         setCurrentRec={setCurrentRec}
         setRequestError={setRequestError}
+        setRevisionsSubmitted={setRevisionsSubmitted}
       />
 
       {
@@ -75,17 +77,28 @@ const App = () => {
             decisionThreshold={decisionThreshold}
             numRecommendations={numRecommendations}
             setDecisionThreshold={setDecisionThreshold}
+            loading={loading}
             setLoading={setLoading}
             setRequestError={setRequestError}
+            revisionsSubmitted={revisionsSubmitted}
+            setRevisionsSubmitted={setRevisionsSubmitted}
+
           />
         </div>
       }
-      <PreCalculatedInterface
-        setRecommendations={setRecommendations}
-        setCurrentRec={setCurrentRec}
-      />
+      {
+        !loading
+        &&
+        <PreCalculatedInterface
+          setRecommendations={setRecommendations}
+          setCurrentRec={setCurrentRec}
+          setRevisionsSubmitted={setRevisionsSubmitted}
+        />
+      }
     </div>
   );
 }
 
 export default App;
+
+

@@ -103,7 +103,9 @@
 
 
 
-
+.position-container{
+  text-align: center;
+}
 
 .before-recs, .after-recs{
   box-shadow: 1px 1px 4px var(--shadow-dark) inset;

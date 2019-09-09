@@ -2,7 +2,7 @@ import React from 'react';
 
 import { postArticle } from '../js/requests'
 
-const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setCurrentRec, setRequestError }) => {
+const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setCurrentRec, setRequestError, setRevisionsSubmitted }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -19,6 +19,7 @@ const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setC
         
         setRequestError("")
         setLoading(true)
+        setRevisionsSubmitted(false)
     }
 
     return(
