@@ -79,10 +79,10 @@ const RecommendationsDisplay = ({
         fetchArticleExtract(recs.entry, setCurrentExtract)
     }
 
-    
+
 
     return (
-        <div>
+        <div className="recommendation-container">
             <div className="results-title" onClick={(e) => {
                 setCurrentRec(recs.entry)
                 fetchArticleExtract(recs.entry, setCurrentExtract)

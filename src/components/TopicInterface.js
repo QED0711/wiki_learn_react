@@ -28,8 +28,8 @@ const TopicInterface = ({
     }
 
     const getCurrentRecObj = () => {
-        for(let rec of recommendations.predictions){
-            if(rec.node === currentRec){
+        for (let rec of recommendations.predictions) {
+            if (rec.node === currentRec) {
                 return rec
             }
         }
@@ -38,13 +38,13 @@ const TopicInterface = ({
     const currentRecObj = getCurrentRecObj()
 
     const swapLabel = () => {
-        if(currentRecObj){
+        if (currentRecObj) {
             // these objects are referencing the delivered object in the main state
             // any changes here will change that state directly (which is intended in this case so we don't need to requery the results)
             currentRecObj.position = currentRecObj.position === 'before' ? "after" : "before";
             currentRecObj.static = currentRecObj.position
         }
-        setRecommendations({...recommendations})
+        setRecommendations({ ...recommendations })
     }
 
     return (
@@ -52,13 +52,17 @@ const TopicInterface = ({
             {
                 showRequestButton
                 &&
-                <div>
-                    <button onClick={swapLabel}>Swap Before/After</button>
-                    <button onClick={handleRequestClick}>Recommendations from here</button>
-                </div>
+                <button onClick={handleRequestClick}>Recommendations from here</button>
             }
+
             <button onClick={handleRedirectClick}>Read Full Article</button>
             <button onClick={handleGoogleSearchClick}>Search on Google</button>
+
+            {
+                showRequestButton
+                &&
+                <button onClick={swapLabel}>Swap Before/After</button>
+            }
         </div>
     )
 }
