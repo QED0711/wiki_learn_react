@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchArticleExtract } from '../js/requests';
 import RecommendationCard from './RecommendationCard'
 import TopicInterface from './TopicInterface';
+import SubmitRevisions from './SubmitRevisions';
 
 const RecommendationsDisplay = ({
     recommendations,
@@ -48,16 +49,19 @@ const RecommendationsDisplay = ({
 
     let recs = reassignClasses(recommendations)
     
-    const beforeRecs = []
-    const afterRecs = []
+    let beforeRecs = []
+    let afterRecs = []
+    let displayedRecs = []
 
     const parseRecommendations = (recs) => {
         let predictions = recs.predictions.slice(0, numRecommendations + 1)
         let card;
         predictions.forEach((rec, i) => {
+            // keep track of recs currently being displayed
+            displayedRecs.push(rec)
 
             card = <RecommendationCard
-                key={i}
+                index={i}
                 rec={rec}
                 setCurrentExtract={setCurrentExtract}
                 setCurrentRec={setCurrentRec}
@@ -69,6 +73,7 @@ const RecommendationsDisplay = ({
             } else {
                 afterRecs.push(card)
             }
+            
         })
     }
 
@@ -116,6 +121,7 @@ const RecommendationsDisplay = ({
                     {afterRecs}
                 </div>
             </div>
+            <SubmitRevisions entry={recs.entry} displayedRecs={displayedRecs} />
         </div>
     )
 

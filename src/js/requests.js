@@ -82,7 +82,37 @@ const fetchArticleExtract = (title, setCurrentExtract) => {
         })
 }
 
+// ====================================================
+
+const submitLabeledData = (submission) => {
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://127.0.0.1:5000/save",
+        // "url": "https://wiki-learn-252012.appspot.com/save",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "accept": "text/event-stream",
+        },
+        "timeout": 0,
+        "processData": false,
+        "data": JSON.stringify(submission),
+    }
+
+    if(process.env.NODE_ENV == 'production'){
+        settings.url = "https://wiki-learn-252012.appspot.com/save"
+    }
+
+    $.ajax(settings).done(response => {
+        console.log(response)
+    })
+}
+
+
 export {
     postArticle,
-    fetchArticleExtract
+    fetchArticleExtract,
+    submitLabeledData,
 }
