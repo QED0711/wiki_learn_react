@@ -37,7 +37,7 @@ const Instructions = () => {
                 <h3>Tuning Results:</h3>
 
                 <p>
-                    You can change the number of total recommendations displayed by adjusting the <em><strong>Num Recommendations</strong></em> slider. The default is 20, and you can go as high as 100. 
+                    You can change the number of total recommendations displayed by adjusting the <em><strong>Displayed Recommendations</strong></em> slider. The default is 20, and you can go as high as 100. 
                 </p>
 
                 <p>
