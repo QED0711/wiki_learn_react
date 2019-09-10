@@ -1,8 +1,15 @@
 :root{
-  --light-blue: #8B9CB6;
-  --dark-blue: #2C4870;
+  --light-blue: rgb(59, 165, 158);
+  --dark-blue: #2F5655;
   --shadow-dark: #6d6d6d;
   --shadow-light: #ececec;
+
+  --before-color: #F7B15B;
+  --after-color: #F65C50;
+}
+
+body{
+  background-color: var(--shadow-light); 
 }
 
 .App {
@@ -67,7 +74,7 @@
   text-align: center;
   font-size: 1.2em;
 
-  border: 2px solid var(--dark-blue);
+  border: 1px solid var(--shadow-dark);
   border-radius: 8px;
 
 }
@@ -89,13 +96,6 @@
 
 .slider-title{
   margin: 1em 0 0
-}
-
-.slider-container{
-  /* position: 'relative';   */
-  width: '50%';
-  margin: '1em auto';
-  height: 160;
 }
 
 
@@ -145,7 +145,24 @@
 
 .extract-container{
   grid-area: extract;
+  
+}
 
+
+
+
+.column-heading{
+  margin: 0 auto 0.5em;
+  padding: 1em 0;
+  width: 90%;
+}
+
+.before-heading{
+  background-color: var(--before-color);
+}
+
+.after-heading{
+  background-color: var(--after-color);
 }
 
 
@@ -159,11 +176,11 @@
 }
 
 .position-before{
-  color: blue;
+  color: var(--before-color);
 }
 
 .position-after{
-  color: orange;
+  color: var(--after-color);
 }
 
 .before-container{

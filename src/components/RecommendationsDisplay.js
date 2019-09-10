@@ -100,7 +100,7 @@ const RecommendationsDisplay = ({
             </div>
             <div className="recommendation-display">
                 <div className="position-container before-container">
-                    <h3>Learn Before</h3>
+                    <h3 className="column-heading before-heading">Learn Before</h3>
                     <div className="before-recs">
                         {beforeRecs}
                     </div>
@@ -123,7 +123,7 @@ const RecommendationsDisplay = ({
                     </div>
                 </div>
                 <div className="position-container after-container">
-                    <h3>Learn After</h3>
+                    <h3 className="column-heading after-heading">Learn After</h3>
                     <div className="after-recs">
                         {afterRecs}
                     </div>

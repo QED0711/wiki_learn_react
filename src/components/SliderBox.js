@@ -16,7 +16,7 @@ const railStyle = {
     height: 10,
     margin: '35px 0',
     borderRadius: 5,
-    backgroundColor: '#8B9CB6',
+    backgroundColor: '#6d6d6d',
 }
 
 const SliderBox = ({ domain, values, step, setConnectedState, sliderTitle }) => {

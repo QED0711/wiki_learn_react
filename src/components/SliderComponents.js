@@ -15,8 +15,8 @@ const Handle = ({handle: { id, value, percent },getHandleProps}) => {
                 textAlign: 'center',
                 cursor: 'pointer',
                 borderRadius: '50%',
-                backgroundColor: '#2C4870',
-                color: '#333',
+                backgroundColor: '#2F5655',
+
             }}
             {...getHandleProps(id)}
         >
