@@ -6,6 +6,7 @@ import Loading from './components/Loading';
 import SliderGroup from './components/SliderGroup';
 import PreCalculatedInterface from './components/PreCalculatedInterface';
 import Header from './components/Header';
+import Instructions from './components/Instructions';
 
 console.log(process.env)
 
@@ -41,7 +42,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-
+      <Instructions />
       <EntryInput
         setRecommendations={setRecommendations}
         setLoading={setLoading}
