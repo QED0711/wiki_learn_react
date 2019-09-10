@@ -19,7 +19,7 @@ const railStyle = {
     backgroundColor: '#6d6d6d',
 }
 
-const SliderBox = ({ domain, values, step, setConnectedState, sliderTitle }) => {
+const SliderBox = ({ domain, values, step, setConnectedState, sliderTitle, displayFloat }) => {
 
     return (
         <div className="slider-box">
@@ -41,6 +41,7 @@ const SliderBox = ({ domain, values, step, setConnectedState, sliderTitle }) => 
                 <Handles>
                     {({ handles, getHandleProps }) => {
                         setConnectedState(handles[0].value.toFixed(2))
+                        
                         return (
                             <div className="slider-handles">
                                 {handles.map(handle => (

@@ -94,6 +94,16 @@ body{
 
 /* SLIDER GROUP */
 
+.slider-group{
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1em 0;
+
+  box-shadow: 2px 2px 10px var(--shadow-dark);
+
+}
+
 .slider-title{
   margin: 1em 0 0
 }
@@ -202,7 +212,7 @@ body{
   overflow: auto;
 
   background-repeat: no-repeat;
-  font-family: 'Comic Sans MS' sans-serif;
+  font-family: sans-serif;
   line-height: 1.15em;
 }
 
