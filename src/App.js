@@ -60,7 +60,7 @@ const App = () => {
       {
         requestError.length > 0
         &&
-        <h3>{requestError}</h3>
+        <h3 className="error-message">{requestError}</h3>
       }
       {
         recommendations

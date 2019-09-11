@@ -406,3 +406,25 @@ body{
   animation-duration: 0.25s;
   animation-fill-mode: forwards;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.error-message{
+  color: var(--after-color);
+  font-style: italic;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
