@@ -60,7 +60,12 @@ const App = () => {
       {
         requestError.length > 0
         &&
-        <h3 className="error-message">{requestError}</h3>
+        <div className="error-message">
+          <h3>{requestError}</h3>
+          <p>
+            Note: Due to limited computing resources, an arbitrary limit has been set on the size of articles that can be submitted to this web app. If you would like to get around this limit, see <a href="https://github.com/QED0711/wiki_learn_flask" target="_blank">here (flask backend)</a> and <a href="https://github.com/QED0711/wiki_learn_react" target="_blank">here (react frontend)</a> to deploy and modify your own local copy.  
+          </p>
+        </div>
       }
       {
         recommendations
@@ -97,6 +102,7 @@ const App = () => {
           setRecommendations={setRecommendations}
           setCurrentRec={setCurrentRec}
           setRevisionsSubmitted={setRevisionsSubmitted}
+          setRequestError={setRequestError}
         />
       }
     </div>

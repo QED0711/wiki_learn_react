@@ -9,7 +9,12 @@ import CDF from '../data/CDF'
 import graphTheory from '../data/graphTheory'
 import reactFramework from '../data/reactFramework'
 
-const PreCalculatedInterface = ({ setRecommendations, setCurrentRec, setRevisionsSubmitted }) => {
+const PreCalculatedInterface = ({ 
+    setRecommendations, 
+    setCurrentRec, 
+    setRevisionsSubmitted, 
+    setRequestError 
+}) => {
     const data = [
         RecommenderSystem,
         graphTheory,
@@ -26,6 +31,7 @@ const PreCalculatedInterface = ({ setRecommendations, setCurrentRec, setRevision
             setRecommendations(recs)
             setCurrentRec(recs.entry)
             setRevisionsSubmitted(false)
+            setRequestError("")
         }
         return setAsRec
     }

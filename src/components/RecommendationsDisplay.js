@@ -20,7 +20,6 @@ const RecommendationsDisplay = ({
     revisionsSubmitted,
     setRevisionsSubmitted
 }) => {
-    console.log("loading")
 
     const reassignClasses = (recs) => {
         // Make a copy of the predictions array
