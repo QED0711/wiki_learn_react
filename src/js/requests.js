@@ -37,11 +37,9 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
         try {
             response = JSON.parse(response.split("formatted\n")[1])
         } catch (err) {
-            if (err.name === "TypeError") {
-                setLoading(false)
-                setRequestError("There was a problem retrieving the data you specified. It may be that the article was too large. Try choosing a smaller, more specific topic.")
-                return
-            }
+            setLoading(false)
+            setRequestError("There was a problem retrieving the data you specified. It may be that the article was too large. Try choosing a smaller, more specific topic.")
+            return
         }
         console.log(JSON.stringify(response))
         let [before, after] = classProbaLabeler(response)
