@@ -24,7 +24,7 @@ const EntryInput = ({ setRecommendations, setLoading, setDecisionThreshold, setC
 
     return(
         <form id="entry-input" onSubmit={handleSubmit}>
-            <label for="user-entry">Wikipedia URL</label>
+            <label htmlFor="user-entry">Paste a Wikipedia article URL in the text field below to get started</label>
             <br/>
             <input type="text" id="user-entry" placeholder="paste Wikipedia article link here" required/>
             <br/>

@@ -13,6 +13,7 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
             "Content-Type": "application/json",
             "cache-control": "no-cache",
             "accept": "text/event-stream",
+            "Access-Control-Allow-Origin": "*"
         },
         "timeout": 0,
         "processData": false,

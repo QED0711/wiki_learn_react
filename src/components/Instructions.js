@@ -7,11 +7,11 @@ const Instructions = () => {
             <h3 className="section-heading">About & Instructions</h3>
             <div className="instructions-content">
                 <p>
-                    If you want to learn something, chances are that the knowledge exists somewhere online. However, quantity of information can seem nearly infinite sometimes, and can be difficult to navigate. Where do I being? Is there any prerequisite knowledge needed? What can I do with the knowledge that I gain?
+                    If you want to learn something, chances are that the knowledge exists somewhere online. However, the quantity of information can seem nearly infinite sometimes, and can be difficult to navigate. Where do I begin? are there any prerequisites? What can I do with the knowledge that I gain?
                 </p>
 
                 <p>
-                    Look no further! <strong><em>Wiki Learn</em></strong> is an interactive curriculum development tool to help you navigate the vast body of knowledge on the modern web!
+                    Look no further! <strong><em>Wiki Learn</em></strong> is an interactive curriculum development tool to help you navigate the vast body of knowledge on the modern web so you can spend less time Googling for the answers and more time learning!
                 </p>
 
                 <p>
@@ -45,7 +45,7 @@ const Instructions = () => {
                 </p>
 
                 <p>
-                    Alternatively, you can change the <em><strong>Decision Threshold</strong></em> slider. You can think of the decision threshold as setting how sure the computer needs to be to put a topic in the <em>Before</em> column. 0 is not sure at all (everything would be placed in the Before column), and 1 is 100% certain (everything would be placed in the After column). The benefit of this approach is that, if you see a few topics that have been sorted into the wrong column, and you move the decision threshold to push them to the olternate column, you may end up pushing other topics that you were unaware of into the correct column as well.  
+                    Alternatively, you can change the <em><strong>Decision Threshold</strong></em> slider. You can think of the decision threshold as setting how sure the computer needs to be to put a topic in the <em>Before</em> column. 0 is not sure at all (everything would be placed in the Before column), and 1 is 100% certain (everything would be placed in the After column). The benefit of this approach is that, if you see a few topics that have been sorted into the wrong column, and you move the decision threshold to push them to the alternate column, you may end up pushing other topics that you were unaware of into the correct column as well.  
                 </p>
             </div>
         </div>
