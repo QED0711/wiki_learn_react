@@ -19,6 +19,12 @@ const postArticle = (text, setRecommendations, setLoading, setDecisionThreshold,
         "processData": false,
         "data": JSON.stringify({ entry: text }),
 
+        "error": (request, status, error) => {
+            setLoading(false)
+            setRequestError("There was a problem retrieving the data you specified. It may be that the article was too large. Try choosing a smaller, more specific topic.")
+            return
+        },
+
         "xhr": (e) => {
             const xhr = $.ajaxSettings.xhr();
             xhr.onprogress = e => {
