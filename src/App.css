@@ -240,7 +240,7 @@ body{
     text-shadow: 2px 2px 8px var(--shadow-dark);
   }
   to{
-    text-shadow: 10px 10px 20px var(--shadow-dark);
+    text-shadow: 5px 5px 30px var(--shadow-light);
   }
 }
 

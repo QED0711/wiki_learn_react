@@ -95,7 +95,7 @@ const RecommendationsDisplay = ({
                 setCurrentRec(recs.entry)
                 fetchArticleExtract(recs.entry, setCurrentExtract)
             }}>
-                <h1>{recs.entry}</h1>
+                <h1 className="results-title">{recs.entry}</h1>
             </div>
             <div className="recommendation-display">
                 <div className="position-container before-container">
